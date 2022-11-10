@@ -31,6 +31,7 @@
     "@storybook/testing-library": "0.0.9",
     "@storybook/web-components": "6.4.19",
     "babel-loader": "8.2.2",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-polyfill-corejs2": "0.3.1",
     "babel-plugin-polyfill-regenerator": "0.3.1",
     "broadcast-channel": "3.7.0",
