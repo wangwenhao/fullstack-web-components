@@ -2,11 +2,12 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-10 13:50:02
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-23 15:41:50
+ * @LastEditTime: 2022-11-24 13:46:56
  * @FilePath: /fullstack-web-components/packages/component/src/input/TextInput.stories.js
  * @Description: Text Input Component story
  */
 import { TextInputComponent } from "./TextInput";
+import { ButtonComponent } from "../button/Button";
 import { html } from 'lit-html';
 
 export default {
@@ -140,7 +141,7 @@ const FormTemplate = ({ headline, onSubmit, onValidate, onFormData }) => {
                 pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
                 class="form-control"
             ></in-text-input>
-            <input class="submit" type="submit" value="Submit" />
+            <button class="primary submit" is="in-button" type="submit">Submit</button>
         </fieldset>
     </form>`;
 }

@@ -2,7 +2,7 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-22 17:15:32
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-23 11:24:12
+ * @LastEditTime: 2022-11-24 11:32:58
  * @FilePath: /fullstack-web-components/packages/component/src/input/validator.ts
  * @Description: Validator
  */
@@ -29,6 +29,7 @@ export function validate(elem: any, showError: boolean) {
             activeValidators.push(validator);
             if (showError) {
                 if (elem.$input) {
+                    elem.$input.setAttribute("aria-invalid", "true");
                     elem.$input.classList.add("error");
                 }
                 if (messageElem) {
