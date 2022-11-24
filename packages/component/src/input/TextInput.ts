@@ -2,13 +2,13 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-10 11:34:07
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-24 18:19:49
+ * @LastEditTime: 2022-11-24 19:06:20
  * @FilePath: /fullstack-web-components/packages/component/src/input/TextInput.ts
  * @Description: Text Input Component
  */
 // import { ElementInternals } from "types/lib.elementInternals"
 
-import { Component, attachShadow, html, css } from "@in/common";
+import { Component, attachShadow, html, css, Listen } from "@in/common";
 
 import { validate, Validator } from "./validator";
 
@@ -254,21 +254,14 @@ export class TextInputComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        this.$input.onblur = () => {
-            this.onValidate(true);
-        }
-        this.$input.onkeyup = () => {
-            this.onChange();
-        }
         for (let prop in this.$attr) {
             this.$input.setAttribute(prop, this.$attr[prop]);
         }
-        this.onValidate(false);
-        this.$input.onchange = () => {
-            this.onChange();
-        }
+        validate(this, false);
     }
 
+    @Listen('keyup', 'input')
+    @Listen('change', 'input')
     onChange() {
         this.shadowRoot.querySelector(".message").innerHTML = "";
         this.$input.classList.remove("error");
@@ -288,8 +281,9 @@ export class TextInputComponent extends HTMLElement {
         this.value = this.getAttribute("value") || "";
     }
 
-    onValidate(showError: boolean) {
-        validate(this, showError);
+    @Listen('blur', 'input')
+    onValidate() {
+        validate(this, true);
     }
 
     focus() {
