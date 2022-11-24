@@ -2,11 +2,12 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-07 15:24:21
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-07 15:53:31
+ * @LastEditTime: 2022-11-24 18:19:06
  * @FilePath: /fullstack-web-components/packages/component/src/card/Card.stories.js
  * @Description: Card Component Story Book
  */
-import { CardComponent } from './Card'
+import { CardComponent } from './Card';
+import { html } from "lit-html";
 
 export default {
     title: "Components/Card",
@@ -26,7 +27,7 @@ export default {
     }
 };
 
-const PrimaryTemplate = ({ image, headline, content, link }) => `
+const PrimaryTemplate = ({ image, headline, content, link }) => html`
     <in-card>
         <img slot="header" src="${image}" />
         <h4 slot="header">${headline}</h4>

@@ -2,19 +2,19 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-10 11:34:07
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-24 16:32:23
+ * @LastEditTime: 2022-11-24 18:19:49
  * @FilePath: /fullstack-web-components/packages/component/src/input/TextInput.ts
  * @Description: Text Input Component
  */
 // import { ElementInternals } from "types/lib.elementInternals"
 
-import { Component, attachShadow } from "@in/common";
+import { Component, attachShadow, html, css } from "@in/common";
 
 import { validate, Validator } from "./validator";
 
 @Component({
     selector: "in-text-input",
-    style: `
+    style: css`
         :host {
             display: block;
             font-family: var(--font-default);
@@ -65,7 +65,7 @@ import { validate, Validator } from "./validator";
             outline: none;
             box-shadow: none;
         }`,
-    template: `
+    template: html`
         <div class="control">
             <input type="text" aria-describedby="message" />
         </div>

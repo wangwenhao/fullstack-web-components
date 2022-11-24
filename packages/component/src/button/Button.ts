@@ -2,14 +2,14 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-23 16:59:33
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-24 17:12:44
+ * @LastEditTime: 2022-11-24 18:20:10
  * @FilePath: /fullstack-web-components/packages/component/src/button/Button.ts
  * @Description: Customized Button Component
  */
 
-import { attachStyle, Component } from "@in/common";
+import { attachStyle, Component, css } from "@in/common";
 
-const buttonStyles = `
+const buttonStyles = css`
     .in-button.primary {
         background: var(--color-blue-500);
         border: 2px solid var(--color-blue-500);

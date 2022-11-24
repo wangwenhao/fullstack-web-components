@@ -2,16 +2,16 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-07 15:16:00
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-24 16:20:55
+ * @LastEditTime: 2022-11-24 18:17:44
  * @FilePath: /fullstack-web-components/packages/component/src/card/Card.ts
  * @Description: Card Component
  */
 
-import { Component, attachShadow } from "@in/common";
+import { Component, attachShadow, html, css } from "@in/common";
 
 @Component({
     selector: 'in-card',
-    style: `
+    style: css`
         :host {
             display: block;
             background: var(--color-white);
@@ -35,7 +35,7 @@ import { Component, attachShadow } from "@in/common";
             padding-left: 0;
             padding-right: 0;
         }`,
-    template: `
+    template: html`
         <header>
             <slot name="header"></slot>
         </header>
