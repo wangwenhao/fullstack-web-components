@@ -2,31 +2,12 @@
  * @Author: 王闻昊 wwh27791@ly.com
  * @Date: 2022-11-23 16:59:33
  * @LastEditors: 王闻昊 wwh27791@ly.com
- * @LastEditTime: 2022-11-24 10:51:13
+ * @LastEditTime: 2022-11-24 17:12:44
  * @FilePath: /fullstack-web-components/packages/component/src/button/Button.ts
  * @Description: Customized Button Component
  */
-export class ButtonComponent extends HTMLButtonElement {
-    constructor() {
-        super();
-    }
 
-    connectedCallback() {
-        this.classList.add("in-button");
-        this.addStylesheet();
-    }
-
-    addStylesheet() {
-        const head = document.head;
-        if (document.getElementById(`in-button-style`)) {
-            return
-        }
-        const style = document.createElement("style");
-        style.setAttribute("id", "in-button-style");
-        style.textContent = buttonStyles;
-        head.appendChild(style);
-    }
-}
+import { attachStyle, Component } from "@in/common";
 
 const buttonStyles = `
     .in-button.primary {
@@ -115,4 +96,18 @@ const buttonStyles = `
     }
 `
 
-customElements.define("in-button", ButtonComponent, { extends: "button" });
+@Component({
+    custom: { extends: "button" },
+    selector: "in-button",
+    style: buttonStyles,
+})
+export class ButtonComponent extends HTMLButtonElement {
+    constructor() {
+        super();
+    }
+
+    connectedCallback() {
+        this.classList.add("in-button");
+        attachStyle(this);
+    }
+}
